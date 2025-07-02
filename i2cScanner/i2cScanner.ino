@@ -1,16 +1,21 @@
 
 #include <Wire.h>
- 
+TwoWire I2CBNO = TwoWire(0);
+
  
 void setup()
 {
-  Wire.begin();
- 
   Serial.begin(9600);
   while (!Serial);             // Leonardo: wait for serial monitor
   Serial.println("\nI2C Scanner");
+  // I2CBNO.begin(21,22);
+  Serial.println("Waiting to initialize...");
+  delay(3000);
+  Serial.println("Initializing...");
+  Wire.begin();
+  Serial.println("Waiting after Initializing...");
+  delay(5000);
 }
- 
  
 void loop()
 {
